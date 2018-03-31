@@ -1,0 +1,21 @@
+[PROJECT]
+Target=Slave.hex
+Processor_Text=PIC16F628A
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=Slave.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[Slave.c]
+Type=4
+[mru-list]
+1=Slave.c
+[Opened Files]
+1=Slave.c
+2=
+3=..\Serial 2\ex12_26.c
+4=
+[Units]
+Count=1
+1=Slave (main)

@@ -1,0 +1,5 @@
+Este exemplo, faz a comunicação serial entre 2 microcontroladores pic16f876a.
+
+COM_SERIAL_01.DSN - Esquemático proteus
+Master.c - Programa do microcontrolador mestre feito em ccs
+Slave.c - Programa do microcontrolador escravo feito em ccs
