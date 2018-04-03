@@ -1,0 +1,59 @@
+/////////////////////////////////////////////////////////////
+////  Zilocchi Eletrônica                                ////
+////                                                     ////
+////  Programa para trabalhar com o PIC em linguagem  C  ////
+////  Projeto: Eng. Fabrício de Lima Ribeiro             ////
+////  11/06/2014                                         ////
+/////////////////////////////////////////////////////////////
+
+#include <16F876.h>
+#fuses HS,NOWDT,NOPROTECT,NOLVP
+#use delay(clock=4194304)
+
+#include <LCD_PORTB.C>
+
+void lcd_symbols1()  
+{ 
+   lcd_send_byte(0, 0x40);
+   lcd_send_byte(0x01, 0x07);
+   lcd_send_byte(0x01, 0x05);
+   lcd_send_byte(0x01, 0x05);
+   lcd_send_byte(0x01, 0x07);
+   lcd_send_byte(0x01, 0x00);
+   lcd_send_byte(0x01, 0x00);
+   lcd_send_byte(0x01, 0x00);
+   lcd_send_byte(0x01, 0x00);
+} 
+
+void lcd_symbols2()  
+{ 
+   lcd_send_byte(0, 0x41);
+   lcd_send_byte(0x01, 0xFF);
+   lcd_send_byte(0x01, 0xFF);
+   lcd_send_byte(0x01, 0xFF);
+   lcd_send_byte(0x01, 0xFF);
+   lcd_send_byte(0x01, 0xFF);
+   lcd_send_byte(0x01, 0xFF);
+   lcd_send_byte(0x01, 0xFF);
+   lcd_send_byte(0x01, 0xFF);
+}
+
+void main()
+{
+   set_tris_b(0b00000000);
+   
+   lcd_init();
+   lcd_symbols1();
+   lcd_symbols2();
+
+   lcd_send_byte(0x00, 0x80); 
+   lcd_putc(0);
+   lcd_putc(1);
+   
+   while(TRUE)
+   {
+
+   }
+}
+
+
