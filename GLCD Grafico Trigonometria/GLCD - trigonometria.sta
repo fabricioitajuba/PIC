@@ -1,0 +1,60 @@
+
+ROM used: 3948 (12%)
+          3948 (12%) including unused fragments
+
+          1 Average locations per line
+          8 Average locations per statement
+
+RAM used: 8 (0%) at main() level
+          93 (5%) worst case
+
+Stack used: 3 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   44    13   3  GLCD - trigonometria.c
+  451     0   0  C:\Program Files (x86)\PICC\devices\18F4550.h
+  817   240  47  C:\Program Files (x86)\PICC\drivers\GLCD_T.c
+ 2172   260  51  C:\Program Files (x86)\PICC\drivers\MATH.h
+----- -----
+ 3484   513 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0    134   2   1   555  3.4  glcd_init
+0    172   2   6   734  7.1  glcd_pixel
+0    380   5  15  1634  8.6  glcd_line
+0     74   1   2             @MUL88
+0     32   0   5             @MUL1616
+0    124   2   4   498  4.8  glcd_fillScreen
+0     54   1   2   247  3.2  glcd_writeByte
+0     94   1   2   398  3.6  glcd_readByte
+0    120   2  10   556  7.5  @FLT
+0     56   1   4   556  7.5  @SFTOI
+0     54   1   2   494 10.7  @ITOF
+0    346   4  14  1171 10.4  @DIVFF
+0    618   8  16    44  1.9  @ADDFF
+0    242   3  11   176  4.3  @MULFF
+0    864  11  50  1171 10.4  cos
+0     74   1   8    44  1.9  sin
+0    506   6   4   610  6.1  MAIN
+
+Program metrics:
+    Functions               15
+    Statements              513
+    Comments                777
+    Volume (V)              14186
+    Difficilty (D)          91.4
+    Effort to implement (E) 1296051
+    Time to implement (T)   20 hours, 0 minutes
+    Est Delivered Bugs (B)  4
+    Cyclomatic Complexity   36
+    Maintainability (MI)    28
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  3944  28820  
+
+
+

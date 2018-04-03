@@ -1,0 +1,166 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     MAIN.n
+006-007 MAIN.i
+008-00B MAIN.x
+00C-00F MAIN.y
+010     glcd_init.mode
+010     glcd_line.x1
+010-011 @MUL1616.P1
+010     MAIN.@SCRATCH1
+011     glcd_fillScreen.color
+011     glcd_line.y1
+011     MAIN.@SCRATCH2
+012     glcd_line.x2
+012-013 @MUL1616.P1
+012     glcd_fillScreen.i
+012     MAIN.@SCRATCH3
+013     glcd_line.y2
+013     glcd_fillScreen.j
+013     MAIN.@SCRATCH4
+014     glcd_line.color
+014-017 sin.x
+014     @MUL1616.@SCRATCH1
+014     glcd_fillScreen.@SCRATCH1
+015     glcd_line.x
+016     glcd_line.y
+017     glcd_line.addx
+018     glcd_line.addy
+018     sin.@SCRATCH1
+019     glcd_line.dx
+019     sin.@SCRATCH2
+01A     glcd_line.dy
+01A     sin.@SCRATCH3
+01B-01C glcd_line.P
+01B     sin.@SCRATCH4
+01C-01F cos.x
+01D     glcd_line.i
+01E     glcd_pixel.x
+01E     glcd_line.@SCRATCH1
+01F     @MUL88.P1
+01F     glcd_pixel.y
+020-023 cos.y
+020     @MUL88.P1
+020     glcd_pixel.color
+021     glcd_pixel.data
+022     glcd_pixel.chip
+023     glcd_readByte.chip
+023     glcd_pixel.@SCRATCH1
+024     glcd_readByte.data
+024     glcd_writeByte.chip
+024-027 cos.t
+025     glcd_writeByte.data
+028-02B cos.t2
+02C     cos.quad
+02D     cos.i
+02E-031 cos.frac
+032-049 cos.P
+04A-04D @DIVFF.P1
+04A-04D @FLT.P2
+04A-04D @SFTOI.P3
+04A     cos.@SCRATCH1
+04B     cos.@SCRATCH2
+04C     cos.@SCRATCH3
+04D     cos.@SCRATCH4
+04E-051 @FLT.P1
+04E-051 @DIVFF.P2
+04E-04F @ITOF.P3
+04E-051 @ADDFF.P4
+04E-051 @MULFF.P5
+052-055 @ADDFF.P1
+052-055 @MULFF.P2
+052     @FLT.@SCRATCH1
+052     @DIVFF.@SCRATCH1
+053     @FLT.@SCRATCH2
+053     @DIVFF.@SCRATCH2
+054     @DIVFF.@SCRATCH3
+055     @DIVFF.@SCRATCH4
+056     @DIVFF.@SCRATCH5
+056     @ADDFF.@SCRATCH1
+056     @MULFF.@SCRATCH1
+057     @DIVFF.@SCRATCH6
+057     @ADDFF.@SCRATCH2
+057     @MULFF.@SCRATCH2
+058     @ADDFF.@SCRATCH3
+058     @MULFF.@SCRATCH3
+059     @ADDFF.@SCRATCH4
+05A     @ADDFF.@SCRATCH5
+05B     @ADDFF.@SCRATCH6
+05C     @ADDFF.@SCRATCH7
+05D     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+00B6  glcd_init
+01E4  glcd_pixel
+0290  glcd_line
+013C  @MUL88
+040C  @MUL1616
+003A  glcd_fillScreen
+0004  glcd_writeByte
+0186  glcd_readByte
+07BE  @FLT
+0990  @SFTOI
+042C  @ITOF
+0836  @DIVFF
+0554  @ADDFF
+0462  @MULFF
+09C8  cos
+0D28  sin
+0D72  MAIN
+0D72  @cinit
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    D:\Informações\Projetos\GLCD Grafico Trigonometria\
+
+Project Files:
+    GLCD - trigonometria.c
+    C:\Program Files (x86)\PICC\devices\18F4550.h
+    C:\Program Files (x86)\PICC\drivers\GLCD_T.c
+    C:\Program Files (x86)\PICC\drivers\MATH.h
+
+Units:
+    D:\Informações\Projetos\GLCD Grafico Trigonometria\GLCD - trigonometria (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      GLCD - trigonometria.err
+    Ext Symbols: GLCD - trigonometria.esym
+    INHX32:      GLCD - trigonometria.hex
+    Symbols:     GLCD - trigonometria.sym
+    List:        GLCD - trigonometria.lst
+    Debug/COFF:  GLCD - trigonometria.cof
+    Project:     GLCD - trigonometria.PJT
+    Call Tree:   GLCD - trigonometria.tre
+    Statistics:  GLCD - trigonometria.sta
