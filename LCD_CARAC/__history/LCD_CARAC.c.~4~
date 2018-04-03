@@ -1,0 +1,46 @@
+//============================================================================//
+//     PROGRAMA PARA CRIAR CARACTERES ESPECIAIS NO LCD
+
+#include <16F877.h>
+#fuses HS,NOWDT,NOPROTECT,NOLVP,PUT,XT
+#use delay(clock=4000000) 
+
+#include <lcd.c>
+
+//Vetor para impressão do caracter º no lCD
+const unsigned char simbolo[8]=
+{          
+    0b00000111,
+    0b00000101,
+    0b00000111,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+};
+
+void simbolo_LCD() 
+{
+   unsigned char i = 0;             
+
+   lcd_send_byte(0, 0x40);
+
+   for(i = 0; i < 8; i++)
+   {
+        lcd_send_byte(1, simbolo[i]);
+   }
+} 
+
+void main()
+{
+   lcd_init();
+   simbolo_LCD();   
+   lcd_send_byte(0, 0x80);   
+   while(true)
+   {
+   }
+}   
+
+
+

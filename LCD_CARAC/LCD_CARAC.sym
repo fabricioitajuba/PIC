@@ -1,0 +1,81 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     lcdlat
+008     PSP_DATA
+008     lcd
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021     lcd_putc.c
+021     lcd_init.i
+022-025 lcd_init.LCD_INIT_STRING
+022     lcd_gotoxy.x
+023     lcd_gotoxy.y
+024     lcd_gotoxy.address
+025     lcd_gotoxy.@SCRATCH1
+026     @delay_ms1.P1
+026     lcd_init.@SCRATCH1
+027     lcd_send_byte.address
+028     lcd_send_byte.n
+029     lcd_read_byte.low
+029     lcd_send_byte.@SCRATCH1
+02A     lcd_send_nibble.n
+02A     lcd_read_byte.high
+02B     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_ms1
+000019  lcd_send_nibble
+000025  lcd_read_nibble
+00002B  lcd_send_byte
+000031  lcd_read_byte
+00006B  lcd_init
+0000A9  lcd_gotoxy
+0000BB  lcd_putc
+0000E9  @cinit1
+0000E9  MAIN
+0000F1  @cinit2
+
+Project Directory:
+    D:\Informações\Projetos\LCD_CARAC\
+
+Project Files:
+    LCD_CARAC.c                                             [18-mar-15 14:53  CRC=CEC77DBD]
+    C:\Program Files (x86)\PICC\Devices\16F877.h            [12-nov-13 13:35  CRC=ADB5114D]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [19-set-13 14:38  CRC=D1A6378A]
+
+Source signature=1FC8FE1E
+
+Units:
+    LCD_CARAC (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   LCD_CARAC.xsym
+    Errors:      LCD_CARAC.err
+    Ext Symbols: LCD_CARAC.esym
+    INHX8:       LCD_CARAC.hex
+    Symbols:     LCD_CARAC.sym
+    List:        LCD_CARAC.lst
+    Debug/COFF:  LCD_CARAC.cof
+    Project:     LCD_CARAC.ccspjt
+    Call Tree:   LCD_CARAC.tre
+    Statistics:  LCD_CARAC.STA

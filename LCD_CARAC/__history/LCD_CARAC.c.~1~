@@ -1,0 +1,134 @@
+//============================================================================//
+//     PROGRAMA PARA EXECULTAR DHT 11 SENSOR DE UMIDADE E TEMPERATURA         //
+//                                30/05/2014                                  //
+//                                                                            //
+//COORDENADOR DE ESTÁGIO: ENGENHEIRO FABRÍCIO DE LIMA RIBEIRO                 //
+//ESTAGIÁRIO: TIAGO FERNANDES DA SILVA COSTA                                  //
+//============================================================================//
+
+//============================================================================//
+//OBSERVAÇÃO: O pino de transmissão de dados do sensor deve ser conctado no   //
+//pino 2 do PIC.                                                              //
+//============================================================================//
+
+#include <16F877.h>
+#fuses HS,NOWDT,NOPROTECT,NOLVP,PUT,XT
+#use delay(clock=4000000) 
+#use fast_io(B)   
+
+#include <lcd.c>
+#include "DHT11.c"
+
+//Vetor para impressão do caracter º no lCD
+const unsigned char simbolo[8]=
+{          
+    0b00000111,
+    0b00000101,
+    0b00000111,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+};
+
+//Declaração das Funções de leitura e impressão no LCD
+void setup();
+void simbolo_LCD();
+
+//Corpo do Programa
+void main()
+{
+   lcd_init();                               //Inicializando LCD
+   
+   int8 state = 0;
+   
+   //Chama a Função setup para realização da leitura do sensor
+   //Os dados recebidos pelo PIC será analisado pela rotina 
+   setup();
+   
+   while (TRUE)
+   {
+      //A variável state recebe os bits de dados através da rotina get_data() 
+      //para ser analisado pela rotina swite case
+      state = get_data();
+      
+      switch(state)
+      {
+         case 1:
+         {
+            lcd_putc("\nSensor Defeito");
+         
+            break;
+         }
+      
+         case 2:
+         {
+            lcd_putc("\fVerificar Erro");
+         
+            break;
+         }
+      
+         default:
+         {
+            //Imprimi a descrição "Tmp ºC":
+            lcd_gotoxy(1, 1); //Rotina para posicionamento de escrita no LCD
+            lcd_putc("Tmp/ C: ");
+            
+            //Chama o vetor para impressão do caracter º no lCD 
+            lcd_gotoxy(5, 1);
+            lcd_putc(0);
+         
+            //Imprimi a descrição "R.H %":
+            lcd_gotoxy(1, 2);
+            lcd_putc("R.H/ %: ");
+         
+            //Impressão dos Valores de Temperatura e Umidade Relativa
+            //Temperatura: Posição 2 Inteiro e 4 Decimal
+            //Umidade: Posição 0 Inteiro e 6 Decimal
+            
+            lcd_gotoxy(9, 1);
+            printf(lcd_putc, "%2u.%02u", values[2], values[4]);
+            lcd_gotoxy(9, 2);
+            printf(lcd_putc, "%2u.%02u", values[0], values[6]);
+            
+            //Leitura do Vetor de dados do sensor
+            /*lcd_gotoxy(1,1);
+            printf(lcd_putc, "%02u.%02u.%02u.%02u",
+            values[0],values[1],values[2],values[3]);
+            
+            lcd_gotoxy(1,2);
+            printf(lcd_putc, "%02u.%02u.%02u.%02u",
+            values[4],values[5],values[6],values[7]);*/
+            
+            break;      
+         }
+      }
+      delay_ms(1000);
+   }   
+}   
+ 
+void setup()
+{
+   disable_interrupts(global);
+   port_B_pullups(FALSE);
+   setup_timer_0(T0_internal | T0_8_bit);
+   set_timer0(0);
+   DHT11_init();
+   lcd_init();
+   lcd_putc("\f");
+   simbolo_LCD();
+}
+
+void simbolo_LCD() 
+{
+   unsigned char i = 0;             
+
+   lcd_send_byte(0, 0x40);
+
+   for(i = 0; i < 8; i++)
+   {
+        lcd_send_byte(1, simbolo[i]);
+   }
+   lcd_send_byte(0, 0x80);
+} 

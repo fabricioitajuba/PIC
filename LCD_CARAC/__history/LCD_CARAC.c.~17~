@@ -1,0 +1,31 @@
+//============================================================================//
+//     PROGRAMA PARA CRIAR CARACTERES ESPECIAIS NO LCD
+
+#include <16F877.h>
+#fuses HS,NOWDT,NOPROTECT,NOLVP,PUT,XT
+#use delay(clock=4000000) 
+
+#include <lcd.c>
+
+void main()
+{
+   lcd_init();
+
+   lcd_send_byte(0, 0x40);
+   lcd_send_byte(0, 0b00111111);
+   lcd_send_byte(1, 0b00100001);
+   lcd_send_byte(1, 0b00100001);
+   lcd_send_byte(1, 0b00100001);
+   lcd_send_byte(1, 0b00100001);
+   lcd_send_byte(1, 0b00100001);
+   lcd_send_byte(1, 0b00010001);
+   lcd_send_byte(0, 0x80);   
+   lcd_putc(0);  
+  
+   while(true)
+   {
+   }
+}   
+
+
+
